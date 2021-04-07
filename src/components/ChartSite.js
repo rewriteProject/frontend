@@ -31,11 +31,11 @@ const ChartSite = () => {
                     hoverBorderColor:'#000'
                 }]
             }}
-            
+
             width={100}
             height={50}
 
-            options={{ 
+            options={{
                 scales: {
                   yAxes: [{
                       ticks: {
@@ -51,7 +51,7 @@ const ChartSite = () => {
                 fontSize:25,
                 fontColor:'#000'
             }}
-      
+
             legend={{
                 display:true,
                 position:'right',
@@ -59,7 +59,7 @@ const ChartSite = () => {
                 fontColor:'#000'
                 }
             }}
-      
+
             layout={{
                 padding:{
                     left:0,
@@ -68,11 +68,10 @@ const ChartSite = () => {
                     top:0
                 }
             }}
-      
+
             tooltips={{
                 enabled: true
             }}
-      
         />
     </div>
 }
