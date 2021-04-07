@@ -8,27 +8,17 @@ const FooterPage = () => {
         <MDBRow className="pt-5 mb-3 text-center d-flex justify-content-center">
           <MDBCol md="2" className="b-3">
             <h6 className="title font-weight-bold">
-              <a href="#!">About us</a>
+              <a href="#!">Über uns</a>
             </h6>
           </MDBCol>
           <MDBCol md="2" className="b-3">
             <h6 className="title font-weight-bold">
-              <a href="#!">Products</a>
+              <a href="#!">Hilfe</a>
             </h6>
           </MDBCol>
           <MDBCol md="2" className="b-3">
             <h6 className="title font-weight-bold">
-              <a href="#!">Awards</a>
-            </h6>
-          </MDBCol>
-          <MDBCol md="2" className="b-3">
-            <h6 className="title font-weight-bold">
-              <a href="#!">Help</a>
-            </h6>
-          </MDBCol>
-          <MDBCol md="2" className="b-3">
-            <h6 className="title font-weight-bold">
-              <a href="#!">Contact</a>
+              <a href="#!">Kontakt</a>
             </h6>
           </MDBCol>
         </MDBRow>
@@ -36,12 +26,13 @@ const FooterPage = () => {
         <MDBRow className="d-flex text-center justify-content-center mb-md-0 mb-4">
           <MDBCol md="8" sm="12" className="mt-5">
             <p style={{ lineHeight: "1.7rem" }}>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae
-              vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-              voluptas sit aspernatur aut odit aut fugit, sed quia
-              consequuntur.
+              Der Auftraggeber arbeitet an einer innovativen Software, die Daten zu Logistik und Kaufverhalten von diversen Produkten sammelt.​
+              Daher wird eine maßgeschneiderte Lösung benötigt, die diese Daten analysiert und auf einer Website in Form von Diagrammen darstellt.​
+              Darüber hinaus sollen anhand der aufbereiteten Daten Wahrscheinlichkeiten und Prognosen berechnet werden können.
+              ReWrite soll Daten einer zentralen Datenbank, die von einer Software gesammelt wurden,
+              analysieren sowie auswerten und anschließend auf einer Webpage je nach Datenart anzeigen.
+              Monatlich werden die Daten der zentralen Datenbank geklont und auf die vom Projektteam
+              zu entwickelnde Datenbank übertragen.
             </p>
           </MDBCol>
         </MDBRow>

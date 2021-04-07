@@ -72,6 +72,7 @@ const ChartSite = () => {
             tooltips={{
                 enabled: true
             }}
+
         />
     </div>
 }
