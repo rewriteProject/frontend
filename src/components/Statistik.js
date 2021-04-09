@@ -79,7 +79,6 @@ class Statistik extends Component {
             <div className="d-flex example-parent">
               <div className="p-2 col-example">
                 <MDBBtn rounded color="success"
-                  active={this.state.items["default"] === "1"}
                   onClick={this.togglePills("default", "1")} >
                   <MDBIcon icon="caret-square-left" size="lg" className="mr-2" />
                   Statistik neu berechnen

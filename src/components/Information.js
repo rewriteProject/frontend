@@ -59,16 +59,21 @@ class Information extends Component {
                       <div>
                         <select className="browser-default custom-select">
                           <option>Wähle ein Land aus</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
+                          <option value="1">China</option>
+                          <option value="2">USA</option>
+                          <option value="3">Russland</option>
                         </select>
                       </div>
                     </MDBTabPane>
                     <MDBTabPane tabId="2">
-                      <p>
-                        2
-                      </p>
+                      <div>
+                        <select className="browser-default custom-select">
+                          <option>Wähle ein Land aus</option>
+                          <option value="1">China</option>
+                          <option value="2">USA</option>
+                          <option value="3">Russland</option>
+                        </select>
+                      </div>
                     </MDBTabPane>
                     <MDBTabPane tabId="3">
                       <ChartSite />

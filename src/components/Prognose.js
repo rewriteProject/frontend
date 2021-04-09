@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { MDBNavLink, MDBIcon, MDBRow, MDBCol, MDBNav, MDBTabContent, MDBLink, MDBNavItem, MDBTabPane, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardHeader, MDBBtn, MDBContainer } from "mdbreact";
+import { MDBDatePickerV5, MDBNavLink, MDBIcon, MDBRow, MDBCol, MDBNav, MDBTabContent, MDBLink, MDBNavItem, MDBTabPane, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardHeader, MDBBtn, MDBContainer } from "mdbreact";
 import ChartSite from './ChartSite'
 import { BrowserRouter as Router } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import PrognoseContent from './PrognoseContent'
 
 class Prognose extends Component {
   state = {
@@ -57,14 +58,79 @@ class Prognose extends Component {
                   </div>
                   <MDBTabContent activeItem={this.state.items["default"]}>
                     <MDBTabPane tabId="1">
-                      <p>
-                        1
-                      </p>
+                      <div className="d-flex bd-highlight example-parent">
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <div>
+                            <h4>Land: </h4>
+                            <select className="browser-default custom-select">
+                              <option>Wähle ein Land aus</option>
+                              <option value="1">China</option>
+                              <option value="2">USA</option>
+                              <option value="3">Russland</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <h4>Startdatum: </h4>
+                          <PrognoseContent />
+                        </div>
+                      </div>
                     </MDBTabPane>
                     <MDBTabPane tabId="2">
-                      <p>
-                        2
-                      </p>
+                      <div className="d-flex bd-highlight example-parent">
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <div>
+                            <h4>Land: </h4>
+                            <select className="browser-default custom-select">
+                              <option>Wähle ein Land aus</option>
+                              <option value="1">China</option>
+                              <option value="2">USA</option>
+                              <option value="3">Russland</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <h4>Startdatum: </h4>
+                          <PrognoseContent />
+                        </div>
+                      </div>
+                      <div className="d-flex bd-highlight example-parent">
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <div>
+                            <h4>Merkmalsart: </h4>
+                            <select className="browser-default custom-select">
+                              <option>Wähle eine Merkmalsart aus</option>
+                              <option value="1">Marke</option>
+                              <option value="2">Farbe</option>
+                              <option value="3">Material</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <div>
+                            <h4>Merkmal: </h4>
+                            <select className="browser-default custom-select">
+                              <option>Wähle ein Merkmal aus</option>
+                              <option value="1">Grün</option>
+                              <option value="2">Rot</option>
+                              <option value="3">Gelb</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="d-flex bd-highlight example-parent">
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <div>
+                            <h4>Intervall: </h4>
+                            <select className="browser-default custom-select">
+                              <option>Wähle ein Intervall aus</option>
+                              <option value="1">China</option>
+                              <option value="2">USA</option>
+                              <option value="3">Russland</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
                     </MDBTabPane>
                     <MDBTabPane tabId="3">
                       <ChartSite />
@@ -79,7 +145,6 @@ class Prognose extends Component {
             <div className="d-flex example-parent">
               <div className="p-2 col-example">
                 <MDBBtn rounded color="danger"
-                  active={this.state.items["default"] === "1"}
                   onClick={this.togglePills("default", "1")} >
                   <MDBIcon icon="caret-square-left" size="lg" className="mr-2" />
                   Prognose neu berechnen
