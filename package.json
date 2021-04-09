@@ -11,6 +11,7 @@
     "material-components-web": "^10.0.0",
     "mdbreact": "^5.0.2",
     "react": "^17.0.1",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-chartjs-2": "^2.11.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",

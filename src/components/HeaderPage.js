@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
-import { MDBBtn, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBMask, MDBView, MDBIcon } from 'mdbreact';
+import { MDBTypography, MDBBtn, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBMask, MDBView, MDBIcon } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 import statisticImage from '../images/statistics.jpg'
 import blackImage from '../images/black.jpg'
+
 
 class HeaderPage extends React.Component {
   constructor(props) {
@@ -22,43 +24,63 @@ class HeaderPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="home">
         <header>
           <Router>
-            <MDBNavbar color="peach-gradient" dark expand="md" fixed="top">
-              <MDBNavbarBrand href="/">
-                <strong>Home</strong>
-              </MDBNavbarBrand>
+            <MDBNavbar color="peach-gradient" fixed="top" dark expand="md" scrolling transparent>
+              <AnchorLink href='#home'>
+                <MDBNavbarBrand href="home">
+                  <strong>Home</strong>
+                </MDBNavbarBrand>
+              </AnchorLink>
               {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
               <MDBCollapse isOpen={this.state.collapse} navbar>
-                <MDBNavbarNav left>
-                  <MDBNavItem active>
-                    <MDBNavLink to="ueberUns">Über uns</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="kontakt">Kontakt</MDBNavLink>
-                  </MDBNavItem>
-                </MDBNavbarNav>
-                <MDBNavbarNav right>
-                  <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="fab fa-facebook" /></MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="fab fa-twitter" /></MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="fab fa-google-plus" /></MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="fab fa-linkedin" /></MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="fab fa-instagram" /></MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="fab fa-pinterest" /></MDBNavLink>
-                  </MDBNavItem>
-                </MDBNavbarNav>
+
+              <MDBNavbarNav left>
+                <MDBNavItem>
+                  <AnchorLink href='#foot'>
+                    <MDBNavLink to="facebook"><MDBIcon fab icon="fab fa-facebook" /></MDBNavLink>
+                  </AnchorLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <AnchorLink href='#foot'>
+                    <MDBNavLink to="twitter"><MDBIcon fab icon="fab fa-twitter" /></MDBNavLink>
+                  </AnchorLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <AnchorLink href='#foot'>
+                    <MDBNavLink to="googleplus"><MDBIcon fab icon="fab fa-google-plus" /></MDBNavLink>
+                    </AnchorLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <AnchorLink href='#foot'>
+                    <MDBNavLink to="linkedin"><MDBIcon fab icon="fab fa-linkedin" /></MDBNavLink>
+                  </AnchorLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <AnchorLink href='#foot'>
+                    <MDBNavLink to="instagram"><MDBIcon fab icon="fab fa-instagram" /></MDBNavLink>
+                    </AnchorLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <AnchorLink href='#foot'>
+                    <MDBNavLink to="pinterest"><MDBIcon fab icon="fab fa-pinterest" /></MDBNavLink>
+                  </AnchorLink>
+                </MDBNavItem>
+              </MDBNavbarNav>
+
+              <MDBNavbarNav right>
+                <MDBNavItem>
+                  <AnchorLink  offset={() => 50} href='#statistik'><MDBNavLink to="statistik">Statistik</MDBNavLink></AnchorLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <AnchorLink  offset={() => 50} href='#prognosen'><MDBNavLink to="prognosen">Prognosen</MDBNavLink></AnchorLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <AnchorLink  offset={() => 50} href='#informationen'><MDBNavLink to="informationen">Informationen</MDBNavLink></AnchorLink>
+                </MDBNavItem>
+              </MDBNavbarNav>
+
               </MDBCollapse>
             </MDBNavbar>
           </Router>
@@ -66,11 +88,25 @@ class HeaderPage extends React.Component {
           <MDBView src={statisticImage}>
             <MDBMask overlay="black-light" className="flex-center flex-column text-white text-center">
 
-            <Fragment>
-              <MDBBtn rounded color="success">Statistik</MDBBtn>
-              <MDBBtn rounded color="danger">Prognosen</MDBBtn>
-              <MDBBtn rounded color="warning">Informationen</MDBBtn>
-            </Fragment>
+              <MDBTypography tag='h1' variant="display-1">ReWrite</MDBTypography>
+              <div class="row">
+                <AnchorLink  offset={() => 50} href='#statistik'>
+                  <MDBBtn rounded color="success" to="statistik" size="lg">
+                    <MDBIcon icon="chart-bar" className="mr-1" /> Statistik
+                  </MDBBtn>
+                </AnchorLink>
+                <AnchorLink  offset={() => 50} href='#prognosen'>
+                  <MDBBtn rounded color="danger" to="prognosen" size="lg">
+                    <MDBIcon icon="chart-line" className="mr-1" /> Prognosen
+                  </MDBBtn>
+                </AnchorLink>
+                <AnchorLink  offset={() => 50} href='#informationen'>
+                  <MDBBtn rounded color="warning" to="informationen" size="lg">
+                    <MDBIcon icon="info" className="mr-1" /> Informationen
+                    {/* align-left */}
+                  </MDBBtn>
+                </AnchorLink>
+              </div>
 
             </MDBMask>
           </MDBView>
