@@ -11,28 +11,9 @@ import './App.css';
 const App = () => {
   return <div>
     <HeaderPage />
-
-
-    <div class="container-lg">
-      <div class="col align-self-center" id="statistik">
-        <ChartSite />
-      </div>
-    </div>
-
-    <div class="container-lg">
-      <div class="col align-self-center" id="prognosen">
-        <ChartSite />
-      </div>
-    </div>
-
-
-    <div class="container-lg">
-      <div class="col align-self-center" id="informationen">
-        <ChartSite />
-      </div>
-    </div>
-
-
+    <Statistik />
+    <Prognose />
+    <Information />
     <FooterPage />
   </div>
 }

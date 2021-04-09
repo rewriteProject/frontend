@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { MDBCol, MDBRow, MDBFooter, MDBContainer, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
 import { BrowserRouter } from 'react-router-dom';
 
-  class TabsDefault extends Component {
+class FooterPage extends Component {
     state = {
-      activeItem: "1"
+      activeItem: "0"
     };
 
     toggle = tab => e => {
@@ -42,6 +42,9 @@ import { BrowserRouter } from 'react-router-dom';
           <MDBCol md="8" sm="12" className="mt-5">
             <p style={{ lineHeight: "1.7rem" }}>
             <MDBTabContent activeItem={this.state.activeItem} >
+
+              <MDBTabPane tabId="0" role="tabpanel"  /> Herzlich willkommen auf unserer Website!
+
               <MDBTabPane tabId="1" role="tabpanel">
 
                 <div  class="mt-2">
@@ -152,4 +155,4 @@ import { BrowserRouter } from 'react-router-dom';
     );
   }
 }
-export default TabsDefault;
+export default FooterPage;
