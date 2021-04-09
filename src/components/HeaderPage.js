@@ -1,9 +1,8 @@
-import React, { Fragment } from 'react';
-import { MDBTypography, MDBBtn, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBMask, MDBView, MDBIcon } from 'mdbreact';
+import React from 'react';
+import { MDBTooltip, MDBTypography, MDBBtn, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBMask, MDBView, MDBIcon } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import statisticImage from '../images/statistics.jpg'
-import blackImage from '../images/black.jpg'
 
 
 class HeaderPage extends React.Component {
@@ -71,13 +70,13 @@ class HeaderPage extends React.Component {
 
               <MDBNavbarNav right>
                 <MDBNavItem>
-                  <AnchorLink  offset={() => 50} href='#statistik'><MDBNavLink to="statistik">Statistik</MDBNavLink></AnchorLink>
+                  <AnchorLink  offset={() => 50} href='#statistik'><MDBNavLink to="#statistik">Statistik</MDBNavLink></AnchorLink>
                 </MDBNavItem>
                 <MDBNavItem>
-                  <AnchorLink  offset={() => 50} href='#prognosen'><MDBNavLink to="prognosen">Prognosen</MDBNavLink></AnchorLink>
+                  <AnchorLink  offset={() => 50} href='#prognosen'><MDBNavLink to="#prognosen">Prognosen</MDBNavLink></AnchorLink>
                 </MDBNavItem>
                 <MDBNavItem>
-                  <AnchorLink  offset={() => 50} href='#informationen'><MDBNavLink to="informationen">Informationen</MDBNavLink></AnchorLink>
+                  <AnchorLink  offset={() => 50} href='#informationen'><MDBNavLink to="#informationen">Informationen</MDBNavLink></AnchorLink>
                 </MDBNavItem>
               </MDBNavbarNav>
 
@@ -90,22 +89,31 @@ class HeaderPage extends React.Component {
 
               <MDBTypography tag='h1' variant="display-1">ReWrite</MDBTypography>
               <div class="row">
-                <AnchorLink  offset={() => 50} href='#statistik'>
-                  <MDBBtn rounded color="success" to="statistik" size="lg">
-                    <MDBIcon icon="chart-bar" className="mr-1" /> Statistik
-                  </MDBBtn>
-                </AnchorLink>
-                <AnchorLink  offset={() => 50} href='#prognosen'>
-                  <MDBBtn rounded color="danger" to="prognosen" size="lg">
-                    <MDBIcon icon="chart-line" className="mr-1" /> Prognosen
-                  </MDBBtn>
-                </AnchorLink>
-                <AnchorLink  offset={() => 50} href='#informationen'>
-                  <MDBBtn rounded color="warning" to="informationen" size="lg">
-                    <MDBIcon icon="info" className="mr-1" /> Informationen
-                    {/* align-left */}
-                  </MDBBtn>
-                </AnchorLink>
+                  <AnchorLink  offset={() => 50} href='#statistik'>
+                    <MDBTooltip placement="top">
+                      <MDBBtn rounded color="success" href='#statistik' size="lg">
+                        <MDBIcon icon="chart-bar" className="mr-1" /> Statistik
+                      </MDBBtn>
+                      <div>Statistiken ansehen</div>
+                    </MDBTooltip>
+                  </AnchorLink>
+                  <AnchorLink  offset={() => 50} href='#prognosen'>
+                    <MDBTooltip placement="top">
+                      <MDBBtn rounded color="danger" to="prognosen" href='#prognosen' size="lg">
+                        <MDBIcon icon="chart-line" className="mr-1" /> Prognosen
+                      </MDBBtn>
+                      <div>Prognosen ansehen</div>
+                    </MDBTooltip>
+                  </AnchorLink>
+                  <AnchorLink  offset={() => 50} href='#informationen'>
+                    <MDBTooltip placement="top">
+                      <MDBBtn rounded color="warning" to="informationen"  href='#informationen' size="lg">
+                        <MDBIcon icon="info" className="mr-1" /> Informationen
+                        {/* align-left */}
+                      </MDBBtn>
+                      <div>Informationen ansehen</div>
+                    </MDBTooltip>
+                  </AnchorLink>
               </div>
 
             </MDBMask>
