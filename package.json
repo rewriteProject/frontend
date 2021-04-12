@@ -57,18 +57,5 @@
   },
   "devDependencies": {
     "xxxxx": "^1.0.3"
-  },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rewriteProject/frontend.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rewriteProject/frontend/issues"
-  },
-  "homepage": "https://github.com/rewriteProject/frontend#readme"
+  }
 }

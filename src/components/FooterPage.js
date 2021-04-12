@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 class FooterPage extends Component {
   state = {
-    activeItem: "0"
+    activeItem: "1"
   };
 
   toggle = tab => e => {
@@ -45,10 +45,8 @@ class FooterPage extends Component {
                   <p style={{ lineHeight: "1.7rem" }}>
                   <MDBTabContent activeItem={this.state.activeItem} >
 
-                    <MDBTabPane tabId="0" role="tabpanel"  /> Herzlich willkommen auf unserer Website!
-
+                    // https://mdbootstrap.com/docs/react/sections/team/
                     <MDBTabPane tabId="1" role="tabpanel">
-                      // https://mdbootstrap.com/docs/react/sections/team/
                       <div  class="mt-2">
                         <h2>Das Projektteam</h2><br />
 
