@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { MDBDatePickerV5, MDBNavLink, MDBIcon, MDBRow, MDBCol, MDBNav, MDBTabContent, MDBLink, MDBNavItem, MDBTabPane, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardHeader, MDBBtn, MDBContainer } from "mdbreact";
+import { MDBDatePickerV5, MDBIcon, MDBTabContent, MDBTabPane, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardHeader, MDBBtn, MDBContainer } from "mdbreact";
 import ChartSite from './ChartSite'
 import { BrowserRouter as Router } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import PrognoseContent from './PrognoseContent'
+import DatumPicker from './DatumPicker'
 
 class Prognose extends Component {
   state = {
@@ -59,10 +59,10 @@ class Prognose extends Component {
                   <MDBTabContent activeItem={this.state.items["default"]}>
 
                     <MDBTabPane tabId="1">
-
+                      <h4>Erwartetes Lieferdatum</h4>
                       <div className="d-flex bd-highlight example-parent">
                         <div className="p-2 flex-fill bd-highlight col-example">
-                          <h4>Land: </h4>
+                          <h5>Land: </h5>
                           <select className="browser-default custom-select">
                             <option>Wähle ein Land aus</option>
                             <option value="1">China</option>
@@ -71,17 +71,17 @@ class Prognose extends Component {
                           </select>
                         </div>
                         <div className="p-2 flex-fill bd-highlight col-example">
-                          <h4>Startdatum: </h4>
-                          <PrognoseContent />
+                          <h5>Startdatum: </h5>
+                          <DatumPicker />
                         </div>
                       </div>
                     </MDBTabPane>
 
                     <MDBTabPane tabId="2">
-
+                      <h4>Merkmalsentwicklung</h4>
                       <div className="d-flex bd-highlight example-parent">
                         <div className="p-2 flex-fill bd-highlight col-example">
-                          <h4>Land: </h4>
+                          <h5>Land: </h5>
                           <select className="browser-default custom-select">
                             <option>Wähle ein Land aus</option>
                             <option value="1">China</option>
@@ -90,7 +90,7 @@ class Prognose extends Component {
                           </select>
                         </div>
                         <div className="p-2 flex-fill bd-highlight col-example">
-                          <h4>Intervall: </h4>
+                          <h5>Intervall: </h5>
                           <select className="browser-default custom-select">
                             <option>Wähle ein Intervall aus</option>
                             <option value="1">daily</option>
@@ -104,7 +104,7 @@ class Prognose extends Component {
                       <div className="d-flex bd-highlight example-parent">
                         <div className="p-2 flex-fill bd-highlight col-example">
                           <div>
-                            <h4>Merkmalsart: </h4>
+                            <h5>Merkmalsart: </h5>
                             <select className="browser-default custom-select">
                               <option>Wähle eine Merkmalsart aus</option>
                               <option value="1">Marke</option>
@@ -115,7 +115,7 @@ class Prognose extends Component {
                         </div>
                         <div className="p-2 flex-fill bd-highlight col-example">
                           <div>
-                            <h4>Merkmal: </h4>
+                            <h5>Merkmal: </h5>
                             <select className="browser-default custom-select">
                               <option>Wähle ein Merkmal aus</option>
                               <option value="1">Grün</option>
@@ -126,17 +126,20 @@ class Prognose extends Component {
                         </div>
                       </div>
 
-                      <div className="d-flex align-items-stretch bd-highlight example-parent">
-                        <div className="p-2 col-example text-left">
-                          <h4>Startdatum: </h4>
-                            <div className="p-2 col-example text-left">
-                              <PrognoseContent />
-                            </div>
+                      <div className="d-flex bd-highlight example-parent">
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <h5>Startdatum: </h5>
+                          <DatumPicker />
+                        </div>
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <h5>Enddatum: </h5>
+                          <DatumPicker />
                         </div>
                       </div>
 
                     </MDBTabPane>
                     <MDBTabPane tabId="3">
+                      <h4>Prognose</h4>
                       <ChartSite />
                     </MDBTabPane>
                   </MDBTabContent>

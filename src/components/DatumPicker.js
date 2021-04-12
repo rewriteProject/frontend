@@ -4,6 +4,31 @@ import 'react-day-picker/lib/style.css';
 
 //https://react-day-picker.js.org/docs/basic-concepts
 
+const MONTHS = [
+  'Januar',
+  'Februar',
+  'März',
+  'April',
+  'Mai',
+  'Juni',
+  'Juli',
+  'August',
+  'September',
+  'Oktober',
+  'November',
+  'Dezember',
+];
+const WEEKDAYS_LONG = [
+  'Sonntag',
+  'Montag',
+  'Dienstag',
+  'Mittwoch',
+  'Donnerstag',
+  'Freitag',
+  'Samstag',
+];
+const WEEKDAYS_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+
 export default class BasicConcepts extends React.Component {
   constructor(props) {
     super(props);
@@ -26,6 +51,10 @@ export default class BasicConcepts extends React.Component {
     return (
       <div align="center">
         <DayPicker
+          locale="de"
+          months={MONTHS}
+          weekdaysLong={WEEKDAYS_LONG}
+          weekdaysShort={WEEKDAYS_SHORT}
           onDayClick={this.handleDayClick}
           selectedDays={this.state.selectedDay}
         />

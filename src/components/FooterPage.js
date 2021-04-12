@@ -157,4 +157,5 @@ class FooterPage extends Component {
     );
   }
 }
+
 export default FooterPage;

@@ -56,6 +56,7 @@ class Information extends Component {
                   </div>
                   <MDBTabContent activeItem={this.state.items["default"]}>
                     <MDBTabPane tabId="1">
+                      <h4>Überfälligkeit</h4>
                       <div>
                         <select className="browser-default custom-select">
                           <option>Wähle ein Land aus</option>
@@ -66,6 +67,7 @@ class Information extends Component {
                       </div>
                     </MDBTabPane>
                     <MDBTabPane tabId="2">
+                      <h4>Gewicht-Auslastung</h4>
                       <div>
                         <select className="browser-default custom-select">
                           <option>Wähle ein Land aus</option>
@@ -76,6 +78,7 @@ class Information extends Component {
                       </div>
                     </MDBTabPane>
                     <MDBTabPane tabId="3">
+                      <h4>Information</h4>
                       <ChartSite />
                     </MDBTabPane>
                   </MDBTabContent>

@@ -35,50 +35,50 @@ class HeaderPage extends React.Component {
               {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
               <MDBCollapse isOpen={this.state.collapse} navbar>
 
-              <MDBNavbarNav left>
-                <MDBNavItem>
-                  <AnchorLink href='#foot'>
-                    <MDBNavLink to="facebook"><MDBIcon fab icon="fab fa-facebook" /></MDBNavLink>
-                  </AnchorLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <AnchorLink href='#foot'>
-                    <MDBNavLink to="twitter"><MDBIcon fab icon="fab fa-twitter" /></MDBNavLink>
-                  </AnchorLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <AnchorLink href='#foot'>
-                    <MDBNavLink to="googleplus"><MDBIcon fab icon="fab fa-google-plus" /></MDBNavLink>
+                <MDBNavbarNav left>
+                  <MDBNavItem>
+                    <AnchorLink href='#foot'>
+                      <MDBNavLink to="facebook"><MDBIcon fab icon="fab fa-facebook" /></MDBNavLink>
                     </AnchorLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <AnchorLink href='#foot'>
-                    <MDBNavLink to="linkedin"><MDBIcon fab icon="fab fa-linkedin" /></MDBNavLink>
-                  </AnchorLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <AnchorLink href='#foot'>
-                    <MDBNavLink to="instagram"><MDBIcon fab icon="fab fa-instagram" /></MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <AnchorLink href='#foot'>
+                      <MDBNavLink to="twitter"><MDBIcon fab icon="fab fa-twitter" /></MDBNavLink>
                     </AnchorLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <AnchorLink href='#foot'>
-                    <MDBNavLink to="pinterest"><MDBIcon fab icon="fab fa-pinterest" /></MDBNavLink>
-                  </AnchorLink>
-                </MDBNavItem>
-              </MDBNavbarNav>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <AnchorLink href='#foot'>
+                      <MDBNavLink to="googleplus"><MDBIcon fab icon="fab fa-google-plus" /></MDBNavLink>
+                      </AnchorLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <AnchorLink href='#foot'>
+                      <MDBNavLink to="linkedin"><MDBIcon fab icon="fab fa-linkedin" /></MDBNavLink>
+                    </AnchorLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <AnchorLink href='#foot'>
+                      <MDBNavLink to="instagram"><MDBIcon fab icon="fab fa-instagram" /></MDBNavLink>
+                      </AnchorLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <AnchorLink href='#foot'>
+                      <MDBNavLink to="pinterest"><MDBIcon fab icon="fab fa-pinterest" /></MDBNavLink>
+                    </AnchorLink>
+                  </MDBNavItem>
+                </MDBNavbarNav>
 
-              <MDBNavbarNav right>
-                <MDBNavItem>
-                  <AnchorLink  offset={() => 50} href='#statistik'><MDBNavLink to="#statistik">Statistik</MDBNavLink></AnchorLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <AnchorLink  offset={() => 50} href='#prognosen'><MDBNavLink to="#prognosen">Prognosen</MDBNavLink></AnchorLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <AnchorLink  offset={() => 50} href='#informationen'><MDBNavLink to="#informationen">Informationen</MDBNavLink></AnchorLink>
-                </MDBNavItem>
-              </MDBNavbarNav>
+                <MDBNavbarNav right>
+                  <MDBNavItem>
+                    <AnchorLink  offset={() => 50} href='#statistik'><MDBNavLink to="#statistik">Statistik</MDBNavLink></AnchorLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <AnchorLink  offset={() => 50} href='#prognosen'><MDBNavLink to="#prognosen">Prognosen</MDBNavLink></AnchorLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <AnchorLink  offset={() => 50} href='#informationen'><MDBNavLink to="#informationen">Informationen</MDBNavLink></AnchorLink>
+                  </MDBNavItem>
+                </MDBNavbarNav>
 
               </MDBCollapse>
             </MDBNavbar>

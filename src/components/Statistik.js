@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { MDBNavLink, MDBIcon, MDBRow, MDBCol, MDBNav, MDBTabContent, MDBLink, MDBNavItem, MDBTabPane, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardHeader, MDBBtn, MDBContainer } from "mdbreact";
+import { MDBIcon, MDBTabContent, MDBTabPane, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardHeader, MDBBtn, MDBContainer } from "mdbreact";
 import ChartSite from './ChartSite'
 import { BrowserRouter as Router } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import DatumPicker from './DatumPicker'
 
 class Statistik extends Component {
   state = {
@@ -42,33 +43,53 @@ class Statistik extends Component {
                           active={this.state.items["default"] === "1"}
                           onClick={this.togglePills("default", "1")} >
                           <MDBIcon icon="calendar-check" size="lg" className="mr-2" />
-                          Erwartetes Lieferdatum
-                        </MDBBtn>
-                      </div>
-
-                      <div className="p-2 col-example text-left">
-                        <MDBBtn rounded color="success" type="submit"
-                          active={this.state.items["default"] === "2"}
-                          onClick={this.togglePills("default", "2")} >
-                          <MDBIcon icon="filter" size="lg" className="mr-2" />
-                          Merkmalsentwicklung
+                          Zeitraumabhängiger Anteil
                         </MDBBtn>
                       </div>
                   </div>
                   <MDBTabContent activeItem={this.state.items["default"]}>
+
                     <MDBTabPane tabId="1">
-                      <p>
-                        1
-                      </p>
+                      <h4>Zeitraumabhängiger Anteil</h4>
+                      <div className="d-flex bd-highlight example-parent">
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <h5>Land: </h5>
+                          <select className="browser-default custom-select">
+                            <option>Wähle ein Land aus</option>
+                            <option value="1">China</option>
+                            <option value="2">USA</option>
+                            <option value="3">Russland</option>
+                          </select>
+                        </div>
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <h5>Merkmalsart: </h5>
+                          <select className="browser-default custom-select">
+                            <option>Wähle eine Merkmalsart aus</option>
+                            <option value="1">Marke</option>
+                            <option value="2">Farbe</option>
+                            <option value="3">Material</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div className="d-flex bd-highlight example-parent">
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <h5>Startdatum: </h5>
+                          <DatumPicker />
+                        </div>
+                        <div className="p-2 flex-fill bd-highlight col-example">
+                          <h5>Enddatum: </h5>
+                          <DatumPicker />
+                        </div>
+                      </div>
+
                     </MDBTabPane>
+
                     <MDBTabPane tabId="2">
-                      <p>
-                        2
-                      </p>
-                    </MDBTabPane>
-                    <MDBTabPane tabId="3">
+                      <h4>Statistik</h4>
                       <ChartSite />
                     </MDBTabPane>
+
                   </MDBTabContent>
                 </MDBContainer>
               </Router>
@@ -88,8 +109,8 @@ class Statistik extends Component {
               <div className="ml-auto p-2 col-example">
                 <AnchorLink  offset={() => 50} href='#statistik'>
                   <MDBBtn rounded color="success" type="submit"
-                    active={this.state.items["default"] === "3"}
-                    onClick={this.togglePills("default", "3")} >
+                    active={this.state.items["default"] === "2"}
+                    onClick={this.togglePills("default", "2")} >
                     <MDBIcon icon="info" size="lg" className="mr-2" />
                     Erstellen
                   </MDBBtn>
