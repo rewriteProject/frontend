@@ -45,7 +45,7 @@ class FooterPage extends Component {
                   <p style={{ lineHeight: "1.7rem" }}>
                   <MDBTabContent activeItem={this.state.activeItem} >
 
-                    // https://mdbootstrap.com/docs/react/sections/team/
+                    {/* https://mdbootstrap.com/docs/react/sections/team/ */}
                     <MDBTabPane tabId="1" role="tabpanel">
                       <div  class="mt-2">
                         <h2>Das Projektteam</h2><br />
