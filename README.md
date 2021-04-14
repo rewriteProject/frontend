@@ -1,8 +1,8 @@
 # Getting Started with React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Material
 
-## Available Scripts
+## Scripts
 
 In the project directory, you can run:
 
@@ -27,9 +27,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Install Modules
+## Install and import Modules
 
 ### Imports
 import DayPicker from 'react-day-picker';
@@ -39,7 +39,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
-### Installieren der Module}\mbox{}\\
+### Install
 npm install react-day-picker --save
 npm install react-anchor-link-smooth-scroll
 npm install --save @fortawesome/fontawesome-free
