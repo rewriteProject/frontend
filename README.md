@@ -29,9 +29,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-##Install Modules
+## Install Modules
 
-###Imports
+### Imports
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import AnchorLink from `react-anchor-link-smooth-scroll`
@@ -39,7 +39,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
-###Installieren der Module}\mbox{}\\
+### Installieren der Module}\mbox{}\\
 npm install react-day-picker --save
 npm install react-anchor-link-smooth-scroll
 npm install --save @fortawesome/fontawesome-free
