@@ -52,7 +52,7 @@ class Statistik extends Component {
                     <MDBTabPane tabId="1">
                       <h4>Zeitraumabhängiger Anteil</h4>
                       <div className="d-flex bd-highlight example-parent">
-                        <div className="p-2 flex-fill bd-highlight col-example">
+                        <div className="p-2 flex-fill bd-highlight col-6">
                           <h5>Land: </h5>
                           <select className="browser-default custom-select">
                             <option>Wähle ein Land aus</option>
@@ -61,7 +61,7 @@ class Statistik extends Component {
                             <option value="3">Russland</option>
                           </select>
                         </div>
-                        <div className="p-2 flex-fill bd-highlight col-example">
+                        <div className="p-2 flex-fill bd-highlight col-6">
                           <h5>Merkmalsart: </h5>
                           <select className="browser-default custom-select">
                             <option>Wähle eine Merkmalsart aus</option>
@@ -73,11 +73,11 @@ class Statistik extends Component {
                       </div>
 
                       <div className="d-flex bd-highlight example-parent">
-                        <div className="p-2 flex-fill bd-highlight col-example">
+                        <div className="p-2 flex-fill bd-highlight col-6">
                           <h5>Startdatum: </h5>
                           <DatumPicker />
                         </div>
-                        <div className="p-2 flex-fill bd-highlight col-example">
+                        <div className="p-2 flex-fill bd-highlight col-6">
                           <h5>Enddatum: </h5>
                           <DatumPicker />
                         </div>

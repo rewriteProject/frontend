@@ -4,6 +4,7 @@ import ChartSite from './ChartSite'
 import { BrowserRouter as Router } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import DatumPicker from './DatumPicker'
+import DependentDropdown from './DependentDropdown'
 
 class Prognose extends Component {
   state = {
@@ -80,7 +81,7 @@ class Prognose extends Component {
                     <MDBTabPane tabId="2">
                       <h4>Merkmalsentwicklung</h4>
                       <div className="d-flex bd-highlight example-parent">
-                        <div className="p-2 flex-fill bd-highlight col-example">
+                        <div className="p-2 flex-fill bd-highlight col-6">
                           <h5>Land: </h5>
                           <select className="browser-default custom-select">
                             <option>Wähle ein Land aus</option>
@@ -89,7 +90,7 @@ class Prognose extends Component {
                             <option value="3">Russland</option>
                           </select>
                         </div>
-                        <div className="p-2 flex-fill bd-highlight col-example">
+                        <div className="p-2 flex-fill bd-highlight col-6">
                           <h5>Intervall: </h5>
                           <select className="browser-default custom-select">
                             <option>Wähle ein Intervall aus</option>
@@ -100,38 +101,14 @@ class Prognose extends Component {
                         </div>
                       </div>
 
+                      <DependentDropdown />
 
                       <div className="d-flex bd-highlight example-parent">
-                        <div className="p-2 flex-fill bd-highlight col-example">
-                          <div>
-                            <h5>Merkmalsart: </h5>
-                            <select className="browser-default custom-select">
-                              <option>Wähle eine Merkmalsart aus</option>
-                              <option value="1">Marke</option>
-                              <option value="2">Farbe</option>
-                              <option value="3">Material</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div className="p-2 flex-fill bd-highlight col-example">
-                          <div>
-                            <h5>Merkmal: </h5>
-                            <select className="browser-default custom-select">
-                              <option>Wähle ein Merkmal aus</option>
-                              <option value="1">Grün</option>
-                              <option value="2">Rot</option>
-                              <option value="3">Gelb</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="d-flex bd-highlight example-parent">
-                        <div className="p-2 flex-fill bd-highlight col-example">
+                        <div className="p-2 flex-fill bd-highlight col-6">
                           <h5>Startdatum: </h5>
                           <DatumPicker />
                         </div>
-                        <div className="p-2 flex-fill bd-highlight col-example">
+                        <div className="p-2 flex-fill bd-highlight col-6">
                           <h5>Enddatum: </h5>
                           <DatumPicker />
                         </div>
