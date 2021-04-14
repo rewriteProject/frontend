@@ -22,9 +22,9 @@ const DependentDropdown = () => {
   /** Type variable to store different array for different dropdown */
   let type = null;
 
+  /** Assigns value to option tag by count */
   let count = null;
 
-  let value = null;
   /** This will be used to create set of options that user will see */
   let options = null;
 
@@ -32,15 +32,12 @@ const DependentDropdown = () => {
   if (selected === "Marke") {
     type = marke;
     count = 1;
-    value = marke;
   } else if (selected === "Farbe") {
     type = farbe;
     count = 2;
-    value = marke;
   } else if (selected === "Material") {
     type = material;
     count = 3;
-    value = marke;
   }
 
   /** If "Type" is null or undefined then options will be null,
@@ -51,7 +48,6 @@ const DependentDropdown = () => {
   }
 
   return (
-
 
            <div className="d-flex bd-highlight example-parent">
              <div className="p-2 flex-fill bd-highlight col-6">

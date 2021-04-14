@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBSelect, MDBNavLink, MDBIcon, MDBRow, MDBCol, MDBNav, MDBTabContent, MDBLink, MDBNavItem, MDBTabPane, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardHeader, MDBBtn, MDBContainer } from "mdbreact";
+import { MDBIcon, MDBTabContent, MDBTabPane, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardHeader, MDBBtn, MDBContainer } from "mdbreact";
 import ChartSite from './ChartSite'
 import { BrowserRouter as Router } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
@@ -23,7 +23,7 @@ class Information extends Component {
   };
 
   render() {
-    const { activeItemPills } = this.state;
+    
     return (
       <MDBContainer id="informationen">
         <MDBCard style={{marginTop: "3rem", marginBottom: "3rem"}}>

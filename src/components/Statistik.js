@@ -24,7 +24,6 @@ class Statistik extends Component {
   };
 
   render() {
-    const { activeItemPills } = this.state;
 
     return (
       <MDBContainer id="statistik">
