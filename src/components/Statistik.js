@@ -4,9 +4,13 @@ import ChartSite from './ChartSite'
 import { BrowserRouter as Router } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import DatumPicker from './DatumPicker'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 class Statistik extends Component {
   state = {
+    disabled: true,
     items: {
       default: "1",
     }
@@ -24,6 +28,17 @@ class Statistik extends Component {
   };
 
   render() {
+
+    const alert = () => toast.success('Fülle das Statistik-Formular aus!', {
+                                    position: "bottom-right",
+                                    autoClose: 4000,
+                                    hideProgressBar: false,
+                                    closeOnClick: true,
+                                    newestOnTop: false,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                  });
 
     return (
       <MDBContainer id="statistik">
@@ -106,14 +121,26 @@ class Statistik extends Component {
               </div>
 
               <div className="ml-auto p-2 col-example">
-                <AnchorLink  offset={() => 50} href='#statistik'>
-                  <MDBBtn rounded color="success" type="submit"
-                    active={this.state.items["default"] === "2"}
-                    onClick={this.togglePills("default", "2")} >
-                    <MDBIcon icon="info" size="lg" className="mr-2" />
-                    Erstellen
-                  </MDBBtn>
-                </AnchorLink>
+                <div>
+                  {this.state.disabled
+                    ? <AnchorLink  offset={() => 50} href='#statistik'>
+                        <MDBBtn rounded color="success" type="submit"
+                          active={this.state.items["default"] === "2"}
+                          onClick={alert} >
+                          <MDBIcon icon="chart-bar" size="lg" className="mr-2" />
+                          Erstellen
+                        </MDBBtn>
+                      </AnchorLink>
+                    : <AnchorLink  offset={() => 50} href='#statistik'>
+                        <MDBBtn rounded color="success" type="submit"
+                          active={this.state.items["default"] === "2"}
+                          onClick={this.togglePills("default", "2")} >
+                          <MDBIcon icon="chart-bar" size="lg" className="mr-2" />
+                          Erstellen
+                        </MDBBtn>
+                      </AnchorLink>
+                  }
+                </div>
               </div>
             </div>
 

@@ -3,9 +3,13 @@ import { MDBIcon, MDBTabContent, MDBTabPane, MDBCard, MDBCardBody, MDBCardTitle,
 import ChartSite from './ChartSite'
 import { BrowserRouter as Router } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 class Information extends Component {
   state = {
+    disabled: true,
     items: {
       default: "1",
     }
@@ -23,7 +27,17 @@ class Information extends Component {
   };
 
   render() {
-    
+    const alert = () => toast.warn('Fülle das Information-Formular aus!', {
+                                      position: "bottom-right",
+                                      autoClose: 4000,
+                                      hideProgressBar: false,
+                                      closeOnClick: true,
+                                      newestOnTop: false,
+                                      pauseOnHover: true,
+                                      draggable: true,
+                                      progress: undefined,
+                                    });
+
     return (
       <MDBContainer id="informationen">
         <MDBCard style={{marginTop: "3rem", marginBottom: "3rem"}}>
@@ -97,14 +111,27 @@ class Information extends Component {
               </div>
 
               <div className="ml-auto p-2 col-example">
-                <AnchorLink  offset={() => 50} href='#informationen'>
-                  <MDBBtn rounded color="warning" type="submit"
-                    active={this.state.items["default"] === "3"}
-                    onClick={this.togglePills("default", "3")} >
-                    <MDBIcon icon="info" size="lg" className="mr-2" />
-                    Erstellen
-                  </MDBBtn>
-                </AnchorLink>
+                <div>
+                  {this.state.disabled
+                    ? <AnchorLink  offset={() => 50} href='#informationen'>
+                        <MDBBtn rounded color="warning" type="submit"
+                          active={this.state.items["default"] === "3"}
+                          onClick={alert} >
+                          <MDBIcon icon="info" size="lg" className="mr-2" />
+                          Erstellen
+                        </MDBBtn>
+                      </AnchorLink>
+                    : <AnchorLink  offset={() => 50} href='#informationen'>
+                        <MDBBtn rounded color="warning" type="submit"
+                          active={this.state.items["default"] === "3"}
+                          onClick={this.togglePills("default", "3")} >
+                          <MDBIcon icon="info" size="lg" className="mr-2" />
+                          Erstellen
+                        </MDBBtn>
+                      </AnchorLink>
+                  }
+
+                </div>
               </div>
             </div>
 
