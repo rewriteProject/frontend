@@ -17,7 +17,7 @@ const DependentDropdown = () => {
   /** Different arrays for different dropdowns */
   const marke = ["Adidas","Nike","Tommy Hilfiger"];
   const farbe = ["Rot", "Grün", "Blau", "Gelb"];
-  const material = ["Plastik", "Holz", "Metall", "Gummi"];
+  const kategorie = ["Plastik", "Holz", "Metall", "Gummi"];
 
   /** Type variable to store different array for different dropdown */
   let type = null;
@@ -35,8 +35,8 @@ const DependentDropdown = () => {
   } else if (selected === "Farbe") {
     type = farbe;
     count = 2;
-  } else if (selected === "Material") {
-    type = material;
+  } else if (selected === "Kategorie") {
+    type = kategorie;
     count = 3;
   }
 
@@ -57,7 +57,7 @@ const DependentDropdown = () => {
                    <option>Wähle eine Merkmalsart aus</option>
                    <option value="Marke">Marke</option>
                    <option value="Farbe">Farbe</option>
-                   <option value="Material">Material</option>
+                   <option value="Kategorie">Kategorie</option>
                  </select>
 
              </div>

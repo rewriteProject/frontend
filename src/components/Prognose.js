@@ -10,8 +10,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure()
 class Prognose extends Component {
+
   state = {
-    disabled: true,
+    disabled: false,
+    type1: "P1",
+    type1: "P1",
+    value: '',
     items: {
       default: "1",
     }
@@ -28,6 +32,21 @@ class Prognose extends Component {
       });
     }
   };
+
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    console.log('{"country":"' + this.state.value + '"}')
+    event.preventDefault();
+  }
 
   render() {
 
@@ -78,41 +97,104 @@ class Prognose extends Component {
                     <MDBTabPane tabId="1">
 
                       <h4>Erwartetes Lieferdatum</h4>
-                      <div className="d-flex bd-highlight example-parent">
-                        <div className="p-2 flex-fill bd-highlight col-example">
-                          <h5>Land: </h5>
-                          <select className="browser-default custom-select">
-                            <option>Wähle ein Land aus</option>
-                            <option value="1">China</option>
-                            <option value="2">USA</option>
-                            <option value="3">Russland</option>
-                          </select>
-                        </div>
-                        <div className="p-2 flex-fill bd-highlight col-example">
-                          <h5>Startdatum: </h5>
-                          <DatumPicker />
-                        </div>
+                      <div>
+                          <form onSubmit={this.handleSubmit}>
+                            <div className="d-flex bd-highlight example-parent">
+                              <div className="p-2 flex-fill bd-highlight col-12">
+                                <h5>Land: </h5>
+                                <select className="browser-default custom-select"
+                                value={this.state.value} onChange={this.handleChange}>
+                                  <option>Wähle ein Land aus</option>
+                                  <option value="China">China</option>
+                                  <option value="USA">USA</option>
+                                  <option value="Russland">Russland</option>
+                                </select>
+                              </div>
+                            </div>
+                            
+                            <div className="d-flex example-parent">
+                              <div className="p-2 col-example">
+                                <MDBBtn rounded color="danger"
+                                  onClick={this.togglePills("default", "1")}
+                                  type="submit" value="Submit" >
+                                  <MDBIcon icon="caret-square-left" size="lg" className="mr-2" />
+                                  Prognose neu berechnen
+                                </MDBBtn>
+                              </div>
+
+                              <div className="ml-auto p-2 col-example">
+                                <div>
+                                  {this.state.disabled
+                                    ? <AnchorLink  offset={() => 50} href='#informationen'>
+                                        <MDBBtn rounded color="danger" type="submit" value="Submit"
+                                          active={this.state.items["default"] === "3"}
+                                          onClick={alert} >
+                                          <MDBIcon icon="chart-line" size="lg" className="mr-2" />
+                                          Erstellen
+                                        </MDBBtn>
+                                      </AnchorLink>
+                                    : <MDBBtn rounded color="danger" type="submit" value="Submit"
+                                        active={this.state.items["default"] === "3"}>
+                                        <MDBIcon icon="chart-line" size="lg" className="mr-2" />
+                                        Erstellen
+                                      </MDBBtn>
+                                  }
+
+                                </div>
+                              </div>
+                            </div>
+                          </form>
                       </div>
 
                     </MDBTabPane>
 
                     <MDBTabPane tabId="2">
-
-                      <h4>Merkmalsentwicklung</h4>
-                      <div className="d-flex bd-highlight example-parent">
-                        <div className="p-2 flex-fill bd-highlight col-12">
-                          <h5>Land: </h5>
-                          <select className="browser-default custom-select">
-                            <option>Wähle ein Land aus</option>
-                            <option value="1">China</option>
-                            <option value="2">USA</option>
-                            <option value="3">Russland</option>
-                          </select>
+                      <form onSubmit={this.handleSubmit}>
+                        <h4>Merkmalsentwicklung</h4>
+                        <div className="d-flex bd-highlight example-parent">
+                          <div className="p-2 flex-fill bd-highlight col-12">
+                            <h5>Land: </h5>
+                            <select className="browser-default custom-select"
+                                value={this.state.value} onChange={this.handleChange}>
+                              <option>Wähle ein Land aus</option>
+                              <option value="China">China</option>
+                              <option value="USA">USA</option>
+                              <option value="Russland">Russland</option>
+                            </select>
+                          </div>
                         </div>
-                      </div>
 
-                      <DependentDropdown />
+                        <DependentDropdown />
+                        <div className="d-flex example-parent">
+                          <div className="p-2 col-example">
+                            <MDBBtn rounded color="danger" onClick={this.togglePills("default", "1")}
+                              type="submit" value="Submit" >
+                              <MDBIcon icon="caret-square-left" size="lg" className="mr-2" />
+                              Prognose neu berechnen
+                            </MDBBtn>
+                          </div>
 
+                          <div className="ml-auto p-2 col-example">
+                            <div>
+                              {this.state.disabled
+                                ? <AnchorLink  offset={() => 50} href='#informationen'>
+                                    <MDBBtn rounded color="danger" type="submit" value="Submit"
+                                      active={this.state.items["default"] === "3"} onClick={alert} >
+                                      <MDBIcon icon="chart-line" size="lg" className="mr-2" />
+                                      Erstellen
+                                    </MDBBtn>
+                                  </AnchorLink>
+                                : <MDBBtn rounded color="danger" type="submit" value="Submit"
+                                    active={this.state.items["default"] === "3"}>
+                                    <MDBIcon icon="chart-line" size="lg" className="mr-2" />
+                                    Erstellen
+                                  </MDBBtn>
+                              }
+
+                            </div>
+                          </div>
+                        </div>
+                      </form>
                     </MDBTabPane>
 
                     <MDBTabPane tabId="3">
@@ -126,43 +208,7 @@ class Prognose extends Component {
                 </MDBContainer>
               </Router>
 
-
             </MDBCardText>
-
-            <div className="d-flex example-parent">
-              <div className="p-2 col-example">
-                <MDBBtn rounded color="danger"
-                  onClick={this.togglePills("default", "1")} >
-                  <MDBIcon icon="caret-square-left" size="lg" className="mr-2" />
-                  Prognose neu berechnen
-                </MDBBtn>
-              </div>
-
-              <div className="ml-auto p-2 col-example">
-                <div>
-                  {this.state.disabled
-                    ? <AnchorLink  offset={() => 50} href='#prognosen'>
-                        <MDBBtn rounded color="danger" type="submit"
-                          active={this.state.items["default"] === "3"}
-                          onClick={alert} >
-                          <MDBIcon icon="chart-line" size="lg" className="mr-2" />
-                          Erstellen
-                        </MDBBtn>
-                      </AnchorLink>
-                    : <AnchorLink  offset={() => 50} href='#prognosen'>
-                        <MDBBtn rounded color="danger" type="submit"
-                          active={this.state.items["default"] === "3"}
-                          onClick={this.togglePills("default", "3")} >
-                          <MDBIcon icon="chart-line" size="lg" className="mr-2" />
-                          Erstellen
-                        </MDBBtn>
-                      </AnchorLink>
-                  }
-
-                </div>
-              </div>
-            </div>
-
 
           </MDBCardBody>
         </MDBCard>
