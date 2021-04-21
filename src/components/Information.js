@@ -11,15 +11,14 @@ class Information extends Component {
 
   state = {
     disabled: false,
-    type1: "I1",
-    type1: "I1",
+    type: "I1",
     value: '',
     items: {
       default: "1",
     }
   };
 
-  togglePills = (type, tab) => e => {
+  togglePills = (type, tab, state) => e => {
     e.preventDefault();
     if (this.state.items[type] !== tab) {
       let items = { ...this.state.items };
@@ -28,6 +27,7 @@ class Information extends Component {
         items
       });
     }
+    this.changeState(state)
   };
 
   constructor(props) {
@@ -41,9 +41,14 @@ class Information extends Component {
   }
 
   handleSubmit(event) {
-    console.log('{"country":"' + this.state.value + '"}')
+    console.log('{"type":"' + this.state.type + '", "country":"' + this.state.value + '"}')
     event.preventDefault();
   }
+
+  changeState(state) {
+    this.setState({type: state})
+  }
+
 
   render() {
     const alert = () => toast.warn('Fülle das Information-Formular aus!', {
@@ -72,7 +77,7 @@ class Information extends Component {
                       <div className="p-2 col-example text-left">
                         <MDBBtn rounded color="warning" type="submit"
                           active={this.state.items["default"] === "1"}
-                          onClick={this.togglePills("default", "1")} >
+                          onClick={this.togglePills("default", "1", "I1")} >
                           <MDBIcon icon="clock" size="lg" className="mr-2" />
                           Überfälligkeit
                         </MDBBtn>
@@ -81,7 +86,7 @@ class Information extends Component {
                       <div className="p-2 col-example text-left">
                         <MDBBtn rounded color="warning" type="submit"
                           active={this.state.items["default"] === "2"}
-                          onClick={this.togglePills("default", "2")} >
+                          onClick={this.togglePills("default", "2", "I2")} >
                           <MDBIcon icon="weight-hanging" size="lg" className="mr-2" />
                           Gewicht-Auslastung
                         </MDBBtn>

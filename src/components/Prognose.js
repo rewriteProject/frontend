@@ -3,7 +3,6 @@ import { MDBIcon, MDBTabContent, MDBTabPane, MDBCard, MDBCardBody, MDBCardTitle,
 import ChartSite from './ChartSite'
 import { BrowserRouter as Router } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import DatumPicker from './DatumPicker'
 import DependentDropdown from './DependentDropdown'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,16 +12,16 @@ class Prognose extends Component {
 
   state = {
     disabled: false,
-    type1: "P1",
-    type1: "P1",
-    value: '',
+    type: "P1",
+    country: '',
+    options: '',
+    attr: '',
     items: {
       default: "1",
     }
   };
 
-  togglePills = (type, tab) => e => {
-
+  togglePills = (type, tab, state) => e => {
     e.preventDefault();
     if (this.state.items[type] !== tab) {
       let items = { ...this.state.items };
@@ -31,6 +30,7 @@ class Prognose extends Component {
         items
       });
     }
+    this.changeState(state);
   };
 
   constructor(props) {
@@ -40,12 +40,21 @@ class Prognose extends Component {
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({country: event.target.value});
   }
 
   handleSubmit(event) {
-    console.log('{"country":"' + this.state.value + '"}')
+    if (this.state.type == 'P1') {
+      console.log('{"type":"' + this.state.type + '", "country":"' + this.state.country + '"}');
+    }
+    if (this.state.type == 'P2') {
+      console.log('{"type":"' + this.state.type + '", "country":"' + this.state.country + '", "options":"' + this.state.options + '"}, "attr":"' + this.state.attr + '"}');
+    }
     event.preventDefault();
+  }
+
+  changeState(state) {
+    this.setState({type: state})
   }
 
   render() {
@@ -77,7 +86,7 @@ class Prognose extends Component {
                       <div className="p-2 col-example text-left">
                         <MDBBtn rounded color="danger" type="submit"
                           active={this.state.items["default"] === "1"}
-                          onClick={this.togglePills("default", "1")} >
+                          onClick={this.togglePills("default", "1", "P1")} >
                           <MDBIcon icon="calendar-check" size="lg" className="mr-2" />
                           Erwartetes Lieferdatum
                         </MDBBtn>
@@ -86,7 +95,7 @@ class Prognose extends Component {
                       <div className="p-2 col-example text-left">
                         <MDBBtn rounded color="danger" type="submit"
                           active={this.state.items["default"] === "2"}
-                          onClick={this.togglePills("default", "2")} >
+                          onClick={this.togglePills("default", "2", "P2")} >
                           <MDBIcon icon="filter" size="lg" className="mr-2" />
                           Merkmalsentwicklung
                         </MDBBtn>
@@ -103,7 +112,7 @@ class Prognose extends Component {
                               <div className="p-2 flex-fill bd-highlight col-12">
                                 <h5>Land: </h5>
                                 <select className="browser-default custom-select"
-                                value={this.state.value} onChange={this.handleChange}>
+                                value={this.state.country} onChange={this.handleChange}>
                                   <option>Wähle ein Land aus</option>
                                   <option value="China">China</option>
                                   <option value="USA">USA</option>
@@ -126,14 +135,14 @@ class Prognose extends Component {
                                 <div>
                                   {this.state.disabled
                                     ? <AnchorLink  offset={() => 50} href='#informationen'>
-                                        <MDBBtn rounded color="danger" type="submit" value="Submit"
+                                        <MDBBtn rounded color="danger" type="submit"
                                           active={this.state.items["default"] === "3"}
                                           onClick={alert} >
                                           <MDBIcon icon="chart-line" size="lg" className="mr-2" />
                                           Erstellen
                                         </MDBBtn>
                                       </AnchorLink>
-                                    : <MDBBtn rounded color="danger" type="submit" value="Submit"
+                                    : <MDBBtn rounded color="danger" type="submit"
                                         active={this.state.items["default"] === "3"}>
                                         <MDBIcon icon="chart-line" size="lg" className="mr-2" />
                                         Erstellen
@@ -155,7 +164,7 @@ class Prognose extends Component {
                           <div className="p-2 flex-fill bd-highlight col-12">
                             <h5>Land: </h5>
                             <select className="browser-default custom-select"
-                                value={this.state.value} onChange={this.handleChange}>
+                                value={this.state.country} onChange={this.handleChange}>
                               <option>Wähle ein Land aus</option>
                               <option value="China">China</option>
                               <option value="USA">USA</option>
@@ -164,7 +173,7 @@ class Prognose extends Component {
                           </div>
                         </div>
 
-                        <DependentDropdown />
+                        <DependentDropdown value={this.state.options, this.state.attr} />
                         <div className="d-flex example-parent">
                           <div className="p-2 col-example">
                             <MDBBtn rounded color="danger" onClick={this.togglePills("default", "1")}

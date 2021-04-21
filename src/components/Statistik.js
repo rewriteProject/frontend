@@ -9,14 +9,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure()
 class Statistik extends Component {
+  
   state = {
-    disabled: true,
+    disabled: false,
+    type: "S1",
+    value: '',
     items: {
       default: "1",
     }
   };
 
-  togglePills = (type, tab) => e => {
+  togglePills = (type, tab, state) => e => {
     e.preventDefault();
     if (this.state.items[type] !== tab) {
       let items = { ...this.state.items };
@@ -25,7 +28,27 @@ class Statistik extends Component {
         items
       });
     }
+    this.changeState(state)
   };
+
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    console.log('{"type":"' + this.state.type + '", "country":"' + this.state.value + '"}')
+    event.preventDefault();
+  }
+
+  changeState(state) {
+    this.setState({type: state})
+  }
 
   render() {
 
@@ -55,7 +78,7 @@ class Statistik extends Component {
                       <div className="p-2 col-example text-left">
                         <MDBBtn rounded color="success" type="submit"
                           active={this.state.items["default"] === "1"}
-                          onClick={this.togglePills("default", "1")} >
+                          onClick={this.togglePills("default", "1", "S1")} >
                           <MDBIcon icon="calendar-check" size="lg" className="mr-2" />
                           Zeitraumabhängiger Anteil
                         </MDBBtn>
