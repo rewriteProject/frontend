@@ -11,7 +11,7 @@ toast.configure()
 class Prognose extends Component {
 
   state = {
-    disabled: false,
+    disabled: true,
     type: "P1",
     country: '',
     options: '',
@@ -59,7 +59,7 @@ class Prognose extends Component {
 
   render() {
 
-    const alert = () => toast.error('Fülle das Prognose-Formular aus!', {
+    const alert = () => toast.error('Fülle das Prognosen-Formular aus!', {
                                       position: "bottom-right",
                                       autoClose: 4000,
                                       hideProgressBar: false,
@@ -134,7 +134,7 @@ class Prognose extends Component {
                               <div className="ml-auto p-2 col-example">
                                 <div>
                                   {this.state.disabled
-                                    ? <AnchorLink  offset={() => 50} href='#informationen'>
+                                    ? <AnchorLink  offset={() => 50} href='#prognosen'>
                                         <MDBBtn rounded color="danger" type="submit"
                                           active={this.state.items["default"] === "3"}
                                           onClick={alert} >

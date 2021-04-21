@@ -51,7 +51,7 @@ class Information extends Component {
 
 
   render() {
-    const alert = () => toast.warn('Fülle das Information-Formular aus!', {
+    const alert = () => toast.warn('Fülle das Informationen-Formular aus!', {
                                       position: "bottom-right",
                                       autoClose: 4000,
                                       hideProgressBar: false,
