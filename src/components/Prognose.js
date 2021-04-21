@@ -44,10 +44,10 @@ class Prognose extends Component {
   }
 
   handleSubmit(event) {
-    if (this.state.type == 'P1') {
+    if (this.state.type === 'P1') {
       console.log('{"type":"' + this.state.type + '", "country":"' + this.state.country + '"}');
     }
-    if (this.state.type == 'P2') {
+    if (this.state.type === 'P2') {
       console.log('{"type":"' + this.state.type + '", "country":"' + this.state.country + '", "options":"' + this.state.options + '", "attr":"' + this.state.attr + '"}');
     }
     event.preventDefault();
