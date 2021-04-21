@@ -11,7 +11,7 @@ toast.configure()
 class Prognose extends Component {
 
   state = {
-    disabled: true,
+    disabled: false,
     type: "P1",
     country: '',
     options: '',
@@ -186,7 +186,7 @@ class Prognose extends Component {
                           <div className="ml-auto p-2 col-example">
                             <div>
                               {this.state.disabled
-                                ? <AnchorLink  offset={() => 50} href='#informationen'>
+                                ? <AnchorLink  offset={() => 50} href='#prognosen'>
                                     <MDBBtn rounded color="danger" type="submit" value="Submit"
                                       active={this.state.items["default"] === "3"} onClick={alert} >
                                       <MDBIcon icon="chart-line" size="lg" className="mr-2" />

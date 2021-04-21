@@ -11,7 +11,7 @@ toast.configure()
 class Statistik extends Component {
   
   state = {
-    disabled: false,
+    disabled: true,
     type: "S1",
     value: '',
     items: {
