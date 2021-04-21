@@ -48,7 +48,7 @@ class Prognose extends Component {
       console.log('{"type":"' + this.state.type + '", "country":"' + this.state.country + '"}');
     }
     if (this.state.type == 'P2') {
-      console.log('{"type":"' + this.state.type + '", "country":"' + this.state.country + '", "options":"' + this.state.options + '"}, "attr":"' + this.state.attr + '"}');
+      console.log('{"type":"' + this.state.type + '", "country":"' + this.state.country + '", "options":"' + this.state.options + '", "attr":"' + this.state.attr + '"}');
     }
     event.preventDefault();
   }
