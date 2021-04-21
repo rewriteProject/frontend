@@ -1,4 +1,4 @@
-FROM node:10 AS builder
+FROM tiangolo/node-frontend:10 AS builder
 WORKDIR /app
 COPY . .
 RUN npm install && npm run build
