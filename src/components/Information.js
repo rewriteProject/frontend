@@ -5,18 +5,27 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import loading from '../images/Loading.gif'
 
+const FLO_PORT = process.env.FLO_PORT
+const FLO_ADDR = process.env.FLO_ADDR
 toast.configure()
 class Information extends Component {
 
   state = {
+    options: null,
     disabled: false,
+    loadNames: true,
     type: "I1",
     value: '',
     items: {
       default: "1",
     }
   };
+
+  changeState(state) {
+    this.setState({type: state})
+  }
 
   togglePills = (type, tab, state) => e => {
     e.preventDefault();
@@ -45,10 +54,18 @@ class Information extends Component {
     event.preventDefault();
   }
 
-  changeState(state) {
-    this.setState({type: state})
+  async componentDidMount() {
+    //const url = FLO_ADDR + ":" + FLO_PORT + "/Amin/onLoad/countries";
+    const url = "https://jsonplaceholder.typicode.com/users";
+    const response = await fetch(url);
+    const data = await response.json();
+    let arrNames = []
+    for (var i = 0; i < data.length; i++) {
+      arrNames.push(data[i].name)
+    }  
+    this.options = arrNames.map((el) => <option value={el} key={el}>{el}</option>);
+    this.setState({loadNames:false})
   }
-
 
   render() {
     const alert = () => toast.warn('Fülle das Informationen-Formular aus!', {
@@ -97,18 +114,25 @@ class Information extends Component {
                       <h4>Überfälligkeit</h4>
                       <div>
                         <form onSubmit={this.handleSubmit}>
-                          <div className="d-flex bd-highlight example-parent">
-                            <div className="p-2 flex-fill bd-highlight col-12">
-                              <h5>Land: </h5>
-                              <select className="browser-default custom-select"
-                              value={this.state.value} onChange={this.handleChange}>
-                                <option>Wähle ein Land aus</option>
-                                <option value="China">China</option>
-                                <option value="USA">USA</option>
-                                <option value="Russland">Russland</option>
-                              </select>
+                          
+                          {this.state.disabled ? (
+                            <div className="d-flex bd-highlight example-parent">
+                              <div className="p-2 flex-fill bd-highlight col-12">
+                                <img src={loading} alt="loading..." />
+                              </div>
                             </div>
-                          </div>
+                          ) : (
+                            <div className="d-flex bd-highlight example-parent">
+                              <div className="p-2 flex-fill bd-highlight col-12">
+                                <h5>Land: </h5>
+                                <select className="browser-default custom-select"
+                                value={this.state.value} onChange={this.handleChange}>
+                                  <option>Wähle ein Land aus</option>
+                                  {this.options}
+                                </select>
+                              </div>
+                            </div>
+                          )}
 
                           <div className="d-flex example-parent">
                             <div className="p-2 col-example">
@@ -149,18 +173,25 @@ class Information extends Component {
                       <h4>Gewicht-Auslastung</h4>
                       <div>
                         <form onSubmit={this.handleSubmit}>
-                          <div className="d-flex bd-highlight example-parent">
-                            <div className="p-2 flex-fill bd-highlight col-12">
-                              <h5>Land: </h5>
-                              <select className="browser-default custom-select"
-                              value={this.state.value} onChange={this.handleChange}>
-                                <option>Wähle ein Land aus</option>
-                                <option value="China">China</option>
-                                <option value="USA">USA</option>
-                                <option value="Russland">Russland</option>
-                              </select>
-                            </div>
-                          </div>
+
+                          {this.state.disabled ? (
+                              <div className="d-flex bd-highlight example-parent">
+                                <div className="p-2 flex-fill bd-highlight col-12">
+                                  <img src={loading} alt="loading..." />
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="d-flex bd-highlight example-parent">
+                                <div className="p-2 flex-fill bd-highlight col-12">
+                                  <h5>Land: </h5>
+                                  <select className="browser-default custom-select"
+                                  value={this.state.value} onChange={this.handleChange}>
+                                    <option>Wähle ein Land aus</option>
+                                    {this.options}
+                                  </select>
+                                </div>
+                              </div>
+                            )}
 
                           <div className="d-flex example-parent">
                             <div className="p-2 col-example">
